@@ -31,10 +31,12 @@ function validateForm() {
     var valid = true;
     inputArr = document.forms[0].childNodes;
     var age = inputArr[0].value;
-    age = +(age);
-    if (!age || age < 0) {
-        alert("Age must include only numbers!");
-        valid = false;
+    var agePattern = /([0-9])/;
+    for (var i = 0; i < age.length; i++) {
+        if (age.search(agePattern) !== 0) {
+            alert("Age must include only numbers!");
+            valid = false;
+        }
     }
     var rightNik = "user_";
     var userName = inputArr[1].value;
