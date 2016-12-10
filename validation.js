@@ -35,21 +35,22 @@ function validateForm() {
     for (var i = 0; i < age.length; i++) {
         if (age.search(agePattern) !== 0) {
             alert("Age must include only numbers!");
-            valid = false;
+            valid = ! valid;
             break;
         }
     }
-    var rightNik = "user_";
-    var userName = inputArr[1].value;
-    if (userName.indexOf(rightNik) !== 0) {
-        alert("Your nik invalid! It must include user_");
-        valid = false;
-    }
+   var userNamePattern = /^(user_)[\S]*/g;
+   var userName = inputArr[1].value;
+   if(!userName.match(userNamePattern)){
+       alert("username should start from 'user_' and can contain any symbols after!");
+       valid = ! valid;
+   }
+    return isValid;
     var currentDate = moment().format('DD/MM/YYYY');
     var userDate = inputArr[2].value;
     if (userDate !== currentDate) {
-        alert("Your date invalid!");
-        valid = false;
+        alert("Date should be in format DD/MM/YYYY!");
+        valid = ! valid;
     }
     return valid;
 }
