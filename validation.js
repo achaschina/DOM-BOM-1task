@@ -45,7 +45,6 @@ function validateForm() {
        alert("username should start from 'user_' and can contain any symbols after!");
        valid = ! valid;
    }
-    return isValid;
     var currentDate = moment().format('DD/MM/YYYY');
     var userDate = inputArr[2].value;
     if (userDate !== currentDate) {
