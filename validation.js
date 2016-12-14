@@ -31,12 +31,12 @@ function validateForm() {
     var valid = true;
     inputArr = document.forms[0].childNodes;
     var age = inputArr[0].value;
-    var agePattern = /([0-9])/g;
-    if (age.search(agePattern) !== 0) {
+    var agePattern = /^(\d)*$/g;;
+    if (!age.match(agePattern)) {
         alert("Age must include only numbers!");
         valid = false;
     }
-    var userNamePattern = /^(user_)[\S]*/g;
+    var userNamePattern = /^(user_)[\S]*/g
     var userName = inputArr[1].value;
     if(!userName.match(userNamePattern)){
         alert("username should start from 'user_' and can contain any symbols after!");
